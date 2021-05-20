@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+
+<SplitPane fx:id="splitpane" dividerPositions="0.2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+  <items>
+    <AnchorPane prefHeight="100.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <children>
+            <ColorPicker fx:id="colorpicker" layoutX="507.0" layoutY="77.0" onAction="#setColorpicker" prefHeight="25.0" prefWidth="147.0" />
+            <Slider fx:id="strokeslider" blockIncrement="1.0" layoutX="349.0" layoutY="49.0" max="9.0" min="1.0" onMouseClicked="#setStrokeslider" onMouseDragged="#setStrokeslider" />
+            <Label layoutX="268.0" layoutY="47.0" text="Stroke Width" />
+            <Line fx:id="strokeview" endX="114.0" layoutX="369.0" layoutY="74.0" startX="-62.0" />
+            <Button fx:id="clearbtn" layoutX="381.0" layoutY="14.0" mnemonicParsing="false" onAction="#setClearbtn" text="CLear" />
+            <ToggleButton fx:id="linebtn" layoutX="35.0" layoutY="14.0" mnemonicParsing="false" onAction="#activatespinner" selected="true" text="Line">
+               <toggleGroup>
+                  <ToggleGroup fx:id="tools" />
+               </toggleGroup>
+            </ToggleButton>
+            <ToggleButton fx:id="polybtn" layoutX="134.0" layoutY="14.0" mnemonicParsing="false" onAction="#activatespinner" text="Polygon" toggleGroup="$tools" />
+            <ToggleButton fx:id="circlebtn" layoutX="81.0" layoutY="14.0" mnemonicParsing="false" onAction="#activatespinner" text="Circle" toggleGroup="$tools" />
+            <ToggleButton fx:id="cyan" layoutX="509.0" layoutY="14.0" mnemonicParsing="false" onAction="#setColorpicker" prefWidth="25.0" style="-fx-background-color: #00ffff;">
+               <toggleGroup>
+                  <ToggleGroup fx:id="colors" />
+               </toggleGroup></ToggleButton>
+            <ToggleButton fx:id="teal" layoutX="539.0" layoutY="14.0" mnemonicParsing="false" onAction="#setColorpicker" prefWidth="25.0" style="-fx-background-color: #008080;" toggleGroup="$colors" />
+            <ToggleButton fx:id="pink" layoutX="599.0" layoutY="14.0" mnemonicParsing="false" onAction="#setColorpicker" prefWidth="25.0" style="-fx-background-color: #ff00ff;" toggleGroup="$colors" />
+            <ToggleButton fx:id="red" layoutX="629.0" layoutY="14.0" mnemonicParsing="false" onAction="#setColorpicker" prefWidth="25.0" style="-fx-background-color: #ff0000;" toggleGroup="$colors" />
+            <ToggleButton fx:id="yellow" layoutX="509.0" layoutY="46.0" mnemonicParsing="false" onAction="#setColorpicker" prefWidth="25.0" style="-fx-background-color: #ffff00;" toggleGroup="$colors" />
+            <ToggleButton fx:id="olive" layoutX="539.0" layoutY="46.0" mnemonicParsing="false" onAction="#setColorpicker" prefWidth="25.0" style="-fx-background-color: #808000;" toggleGroup="$colors" />
+            <ToggleButton fx:id="green" layoutX="569.0" layoutY="46.0" mnemonicParsing="false" onAction="#setColorpicker" prefWidth="25.0" style="-fx-background-color: #008000;" toggleGroup="$colors" />
+            <ToggleButton fx:id="lime" layoutX="569.0" layoutY="14.0" mnemonicParsing="false" onAction="#setColorpicker" prefWidth="25.0" style="-fx-background-color: #00ff00;" toggleGroup="$colors" />
+            <ToggleButton fx:id="black" layoutX="629.0" layoutY="46.0" mnemonicParsing="false" onAction="#setColorpicker" prefWidth="25.0" style="-fx-background-color: #000000;" toggleGroup="$colors" />
+            <Label layoutX="689.0" layoutY="18.0" text="Selected color" />
+            <Pane fx:id="pane" layoutX="689.0" layoutY="46.0" prefHeight="58.0" prefWidth="75.0" />
+            <ToggleButton fx:id="blue" layoutX="599.0" layoutY="46.0" mnemonicParsing="false" onAction="#setColorpicker" prefWidth="25.0" style="-fx-background-color: #0000ff;" toggleGroup="$colors" />
+            <Button fx:id="undobtn" layoutX="438.0" layoutY="14.0" mnemonicParsing="false" onAction="#setUndobtn" text="Undo" />
+            <Pane fx:id="pane2" layoutX="36.0" layoutY="43.0" prefHeight="58.0" prefWidth="75.0" />
+            <Spinner fx:id="spinner" layoutX="201.0" layoutY="14.0" onMouseClicked="#setPane2" prefHeight="25.0" prefWidth="60.0" />
+            <Label layoutX="164.0" layoutY="55.0" text="Angle" />
+            <Slider fx:id="angleslider" disable="true" layoutX="131.0" layoutY="83.0" majorTickUnit="60.0" max="360.0" minorTickCount="10" onMouseClicked="#setAngle" onMouseDragged="#setAngle" prefHeight="38.0" prefWidth="140.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+            <Label fx:id="anglelabel" disable="true" layoutX="216.0" layoutY="56.0" text="0" />
+         </children></AnchorPane>
+    <AnchorPane fx:id="anchorPane" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#mouseevent" onMouseMoved="#mouseevent" onMousePressed="#mouseevent" onMouseReleased="#mousereleased" prefHeight="100.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+         <children>
+            <Label fx:id="coordonatelabel" layoutX="14.0" layoutY="264.0" text="Label" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>
